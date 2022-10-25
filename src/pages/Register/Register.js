@@ -16,9 +16,10 @@ import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    const navigate = useNavigate();
 
     const [agreed, setAgreed] = useState(false)
     const { createUser, setUser, updateUserInfo } = useContext(AuthContext)
@@ -42,6 +43,7 @@ const Register = () => {
                 setUser(user)
                 form.reset()
                 handleUpdateUser(name, photoURL)
+                navigate('/')
             })
             .catch(error => {
                 const errorMessage = error.message;
