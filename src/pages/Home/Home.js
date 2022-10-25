@@ -23,7 +23,7 @@ const Home = () => {
 
 
                         <Link to={'/courses'}>
-                            <Button variant='danger' className='my-3'>Check Out Now <FaArrowAltCircleRight /> </Button>
+                            <Button variant='danger' className='my-3 py-3'>Check Out Now <FaArrowAltCircleRight /> </Button>
                         </Link>
 
                     </div>

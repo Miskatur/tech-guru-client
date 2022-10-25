@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import CourseDetails from "../components/CoursesDetails/CourseDetails";
 import Main from "../components/Main/Main";
 import Blog from "../pages/Blog/Blog";
 import Courses from "../pages/Courses/Courses";
@@ -19,7 +20,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch(`https://tech-guru-server.vercel.app/courses`)
+                loader: () => fetch(`https://tech-guru-server-miskatur.vercel.app/courses`)
             },
             {
                 path: '/blog',
@@ -36,6 +37,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/course/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({ params }) => fetch(`https://tech-guru-server-miskatur.vercel.app/course-detail/${params.id}`)
             }
         ]
     }
