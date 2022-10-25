@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
