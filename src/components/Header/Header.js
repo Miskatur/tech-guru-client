@@ -58,26 +58,19 @@ const Header = () => {
                                 {
                                     user?.uid ?
                                         <>
-                                            <OverlayTrigger
-                                                key="bottom"
-                                                placement="bottom"
-                                                overlay={
-                                                    <Tooltip id="tooltip-placemen">
-                                                        {user.displayName}.
-                                                    </Tooltip>
+
+                                            <span className='mx-2'>
+                                                {
+                                                    user?.photoURL &&
+                                                    <Image
+                                                        style={{ height: "30px" }}
+                                                        roundedCircle
+                                                        src={user.photoURL}
+                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName}
+                                                    ></Image>
                                                 }
-                                            >
-                                                <Link className='mx-2'>
-                                                    {
-                                                        user?.photoURL &&
-                                                        <Image
-                                                            style={{ height: "30px" }}
-                                                            roundedCircle
-                                                            src={user.photoURL}
-                                                        ></Image>
-                                                    }
-                                                </Link>
-                                            </OverlayTrigger>
+                                            </span>
+
                                             <Button variant="warning" className=' mx-2 '><Link className='text-decoration-none text-dark' onClick={handleLogOut}>LogOut</Link></Button>
                                         </>
                                         :

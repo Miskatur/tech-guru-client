@@ -36,7 +36,7 @@ const CourseDetails = () => {
                                 <ListGroup.Item variant="primary">1. Expert Instructor. <FaUserTie /> </ListGroup.Item>
                                 <ListGroup.Item variant="secondary">2. 24/7 Customer Support. <FaHeadset />  </ListGroup.Item>
                                 <ListGroup.Item variant="success">3. Life Time Access . <FaUserClock /> </ListGroup.Item>
-                                <ListGroup.Item variant="danger">1. Expert Instructor. <FaUserTie /> </ListGroup.Item>
+                                <ListGroup.Item variant="danger">4. Live Video Support. <FaUserTie /> </ListGroup.Item>
                             </ListGroup>
                         </div>
                     </div>
