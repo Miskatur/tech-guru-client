@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button, Container, Image, ListGroup } from 'react-bootstrap';
 import { FaArrowAltCircleRight, FaHeadset, FaUserClock, FaUserTie } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData()
     console.log(courseDetails)
 
-    const { classes, details, course_name, hours, image, instructor, instructorImg
+    const { id, classes, details, course_name, hours, image, instructor, instructorImg
     } = courseDetails;
     return (
         <div >
@@ -42,7 +42,9 @@ const CourseDetails = () => {
                     </div>
 
                     <div className='d-flex justify-content-center my-3'>
-                        <Button variant='warning' className='fw-bold font-monospace'>Get Premium Access <FaArrowAltCircleRight /></Button>
+                        <Link to={`/course/${id}/premium`}>
+                            <Button variant='warning' className='fw-bold font-monospace'>Get Premium Access <FaArrowAltCircleRight /></Button>
+                        </Link>
                     </div>
                 </div>
 
