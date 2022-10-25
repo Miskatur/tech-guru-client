@@ -17,7 +17,7 @@ const CourseDetails = () => {
         <div >
             <Container >
                 <div className='border border-2 border-danger m-5 py-3'>
-                    <div className='d-flex justify-content-center align-items-center'>
+                    <div className='d-block d-md-flex justify-content-center align-items-center'>
                         <h1 className='text-center'>Introducing <span className='text-warning'>{course_name}</span></h1>
                         <Pdf targetRef={ref} filename="course-details.pdf">
                             {({ toPdf }) => <Button variant='primary' className='ms-4' onClick={toPdf}>Download Pdf</Button>}
