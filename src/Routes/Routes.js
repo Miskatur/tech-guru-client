@@ -18,7 +18,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                loader: () => fetch(`https://tech-guru-server.vercel.app/courses`)
             },
             {
                 path: '/blog',
