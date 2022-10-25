@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom';
 const Register = () => {
 
     const [agreed, setAgreed] = useState(false)
-    const { createUser, setUser, user, updateUserInfo } = useContext(AuthContext)
+    const { createUser, setUser, updateUserInfo } = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState(false)
 
 
@@ -103,12 +103,9 @@ const Register = () => {
                                     <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Agree Terms & Conditions' onClick={handleCheckox} />
                                 </div>
 
-                                {
-                                    user?.uid ?
-                                        <p></p>
-                                        :
-                                        <p className='text-danger'>{errorMessage}</p>
-                                }
+
+                                <p className='text-danger'>{errorMessage}</p>
+
 
                                 <MDBBtn className='mb-4' size='lg' disabled={!agreed}>Register</MDBBtn>
                                 <p>Already have an Account? <Link to={'/login'}>Login here</Link> </p>

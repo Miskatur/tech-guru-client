@@ -21,7 +21,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider()
     const githubProvider = new GithubAuthProvider()
 
-    const { userSignIn, setUser, user, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
+    const { userSignIn, setUser, signInWithGoogle, signInWithGithub } = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState(false)
 
     const [passwordShown, setPasswordShown] = useState(false)
@@ -95,12 +95,10 @@ const Login = () => {
                             <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Show Password' onClick={handledPassword} />
                         </div>
 
-                        {
-                            user?.uid ?
-                                <p></p>
-                                :
-                                <p className='text-danger'>{errorMessage}</p>
-                        }
+
+
+                        <p className='text-danger'>{errorMessage}</p>
+
 
                         <MDBBtn className="mb-4 w-100" size="lg" style={{ backgroundColor: '#ffa900', color: 'black' }}>Log In</MDBBtn>
 
