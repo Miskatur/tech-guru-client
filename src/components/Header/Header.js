@@ -6,19 +6,27 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import './Header.css'
-import { FaHome, FaBookOpen, FaBloggerB, FaQuestionCircle } from 'react-icons/fa';
+import { FaHome, FaBookOpen, FaBloggerB, FaQuestionCircle, FaSun, FaMoon } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+    const [isDark, setDark] = useState(false);
 
-
+    const [Show, setShow] = useState(false);
 
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(error => console.error(error))
+    }
+
+    const handleSwitch = () => {
+        setDark(!isDark)
     }
 
     return (
@@ -59,17 +67,36 @@ const Header = () => {
                                     user?.uid ?
                                         <>
 
-                                            <span className='mx-2'>
+                                            <Link className='mx-2' onClick={() => setShow(true)}>
                                                 {
                                                     user?.photoURL &&
-                                                    <Image
-                                                        style={{ height: "30px" }}
-                                                        roundedCircle
-                                                        src={user.photoURL}
-                                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName}
-                                                    ></Image>
+                                                    <>
+                                                        <Image
+                                                            style={{ height: "30px" }}
+                                                            roundedCircle
+                                                            src={user.photoURL}
+                                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.displayName}
+                                                        ></Image>
+
+                                                    </>
+
                                                 }
-                                            </span>
+                                            </Link>
+                                            {/* Modals  */}
+                                            <Modal
+                                                size="sm"
+                                                show={Show}
+                                                onHide={() => setShow(false)}
+                                                aria-labelledby="example-modal-sizes-title-sm"
+                                            >
+                                                <Modal.Header closeButton>
+                                                    <Modal.Title id="example-modal-sizes-title-sm">
+                                                        {user.displayName}
+                                                    </Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body>Email : {user.email}</Modal.Body>
+                                            </Modal>
+                                            {/* Modals */}
 
                                             <Button variant="warning" className=' mx-2 '><Link className='text-decoration-none text-dark' onClick={handleLogOut}>LogOut</Link></Button>
                                         </>
@@ -80,6 +107,17 @@ const Header = () => {
                                             </Link></Button>
                                         </>
                                 }
+                            </Nav>
+                            <Nav>
+
+                                <div className="form-check form-switch">
+                                    <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={handleSwitch} />
+                                    <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+                                        {
+                                            isDark ? <span className='d-flex align-items-center text-dark'> <FaMoon className='me-1' /> Dark</span> : <span className='d-flex align-items-center text-light'> <FaSun className='me-1' /> Light</span>
+                                        }
+                                    </label>
+                                </div>
                             </Nav>
                         </Nav>
 
