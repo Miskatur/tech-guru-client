@@ -44,7 +44,7 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://tech-guru-server-miskatur.vercel.app/course-detail/${params.id}`)
             },
             {
-                path: '/course/:id/premium',
+                path: '/course/:id/checkout',
                 element: <PrivateRoute><Premium></Premium></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://tech-guru-server-miskatur.vercel.app/course-detail/${params.id}`)
             }

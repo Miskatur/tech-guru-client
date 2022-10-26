@@ -50,7 +50,7 @@ const CourseDetails = () => {
                         </div>
 
                         <div className='d-flex justify-content-center my-3'>
-                            <Link to={`/course/${id}/premium`}>
+                            <Link to={`/course/${id}/checkout`}>
                                 <Button variant='warning' className='fw-bold font-monospace'>Get Premium Access <FaArrowAltCircleRight /></Button>
                             </Link>
                         </div>
