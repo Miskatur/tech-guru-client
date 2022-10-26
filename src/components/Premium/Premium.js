@@ -4,7 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 
 const Premium = () => {
     const course = useLoaderData()
-    console.log(course)
     return (
         <div className='d-flex flex-column align-items-center justify-content-center'>
             <h1 className='text-center'>Thank You For Purchasing The

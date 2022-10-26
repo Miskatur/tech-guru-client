@@ -8,7 +8,6 @@ import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData()
-    console.log(courseDetails)
     const ref = useRef()
 
     const { id, classes, details, course_name, hours, image, instructor, instructorImg
